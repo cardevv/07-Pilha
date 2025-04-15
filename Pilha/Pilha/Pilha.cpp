@@ -5,6 +5,7 @@ using namespace std;
 struct NO {
 	int valor;
 	NO* prox;
+	NO* ant;
 };
 
 NO* topo = NULL;
@@ -87,13 +88,42 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (topo == NULL) {
+		 
+		topo = novo;
+		return;
+	} 
+	else {
+
+		
+	
+
+	novo->prox = topo;
+		topo = novo;
+
+		
+	
+
+
+	}
+
+
+
+
+
 
 }
 
 void pop()
 {
+	if (topo == NULL) {
+		cout << "pilha vazia\n";
+		return;
+	}
 
-	
-
+	NO* topotemp = topo;         
+	topo = topo->prox;       
+	free(topotemp);              
+	cout << "elemento removido do topo da pilha.\n";
 }
 
